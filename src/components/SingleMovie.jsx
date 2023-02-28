@@ -1,4 +1,3 @@
-
 const SingleMovie = ({ movies }) => {
   const {
     Actors,
@@ -12,7 +11,7 @@ const SingleMovie = ({ movies }) => {
     imdbRating,
   } = movies;
   return (
-    <article className="max-w-7xl mx-auto p-6 flex flex-col gap-8 md:flex-row break-words w-[80%] justify-center items-center border-2 rounded-xl">
+    <article className="mx-auto p-6 flex flex-col gap-8 md:flex-row break-words w-[80%] justify-center items-center border-2 rounded-xl bg-red-50 border-red-500">
       <div>
         <img src={Poster} alt={Title} />
       </div>
@@ -35,7 +34,8 @@ const SingleMovie = ({ movies }) => {
           <span className="font-semibold">IMDB Rating : </span> {imdbRating}
         </h3>
         <h3>
-          <span className="font-semibold">Movie Plot : </span> {Plot}
+          <span className="font-semibold">Movie Plot : </span>
+          {Plot && Plot.length > 244 ? `${Plot.slice(0, 244)}...` : Plot}
         </h3>
         <h3>
           <span className="font-semibold"> Actors: </span>

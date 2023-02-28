@@ -5,6 +5,7 @@ const url = `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_API_KEY}&`;
 
 const useFetch = (searchVal) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingError, setLoadingError] = useState(false);
   const [isError, setIsError] = useState({ status: false, msg: "" });
   const [movies, setMovies] = useState([]);
 
@@ -21,12 +22,14 @@ const useFetch = (searchVal) => {
       setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
+      setLoadingError(true);
     }
   };
   useEffect(() => {
     fetchMovies();
   }, [searchVal]);
 
-  return [isLoading, isError, movies];
+  return [isLoading, isError, movies, loadingError];
 };
 export default useFetch;

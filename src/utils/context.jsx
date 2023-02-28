@@ -5,8 +5,8 @@ const MoviesContext = createContext();
 
 const MovieContext = ({ children }) => {
   const [searchVal, setSearchVal] = useState("avengers");
-  const val = `s=${searchVal}`
-  const [isLoading, isError, movies] = useFetch(val);
+  const val = `s=${searchVal}`;
+  const [isLoading, isError, movies, loadingError] = useFetch(val);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -15,7 +15,14 @@ const MovieContext = ({ children }) => {
 
   return (
     <MoviesContext.Provider
-      value={{ searchVal, handleChange, isLoading, isError, movies }}
+      value={{
+        searchVal,
+        handleChange,
+        isLoading,
+        isError,
+        movies,
+        loadingError,
+      }}
     >
       {children}
     </MoviesContext.Provider>

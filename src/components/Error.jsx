@@ -1,7 +1,7 @@
 const Error = () => {
   return (
-    <div className="text-center text-3xl h-36 flex items-center justify-center font-semibold">
-      <h4> Nothing to show </h4>
+    <div className="text-center text-3xl min-h-screen bg-green-100 flex items-center justify-center font-semibold">
+      <h4>There was an error... </h4>
     </div>
   );
 };
